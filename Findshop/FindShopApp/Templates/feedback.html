@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>My Website</title>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+            integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+            <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+            <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/footers/">
+            <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
+            <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
+
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" 
+            integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" 
+            integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		
+   </head>
+
+   <body>
+  
+        <!--navbar-->
+        <nav class="navbar navbar-expand-lg fixed-top auto-hiding-navbar">
+         <div class="container">
+           <a class="navbar-brand" href="#">
+
+            {% load static %}
+            <img src="{% static 'FindShopLogo.png' %}"  class="css" width="50" height="50" alt="css">
+            FindShop
+           </a>
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+             <ul class="navbar-nav ml-auto">
+               <!-- <li class="nav-item">
+                 <a class="nav-link active" aria-current="page" href="index">Home</a>
+               </li> -->
+               
+
+             </ul>
+            
+           </div>
+         </div>
+         
+       </nav>
+          <!--end of navbar-->
+<br><br><br><br><br>
+    <h1 class="text-center">Contact Us</h1>
+    <h5 class="text-center">ANYTHING TO SAY?</h5>
+
+    <div class="container">
+    <form class="was-validated" method="POST">
+        {%  csrf_token  %}
+        <div class="form-group">
+        <label for="fname" class="form-label" >Your Customer ID</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Customer ID" required>
+        <br>
+        <label for="exampleFormControlInput1" class="form-label">Your Email address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+        <br>
+     
+        <label for="subject" class="form-label">Subject</label>
+        <textarea class="form-control" id="subject" name ="subject" rows="5" placeholder="Input Your Message" required></textarea>
+
+        <br>
+        <center>
+            <a type = "button" class="btn btn-secondary bg-gradient-secondary" id="id_registration" href="index Customer" >CANCEL</a>
+            <button type="submit" class="btn btn-primary bg-gradient-primary">SEND</button>
+          </center>
+      </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

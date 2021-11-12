@@ -1,0 +1,303 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>Landing Page</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:700|Roboto:400,400i,700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome JS-->
+    
+
+    <!-- Theme CSS -->  
+    
+    <link id="theme-style" rel="stylesheet" href="{% static 'css/themes.css' %}">
+
+</head> 
+
+<body background-color="#cfcff8">    
+	<!--<nav class="navbar navbar-expand-lg fixed-top auto-hiding-navbar">
+         <div class="container">
+           <a class="navbar-brand" href="#">
+
+            {% load static %}
+            <img src="{% static 'logo.png' %}"  class="css" width="50" height="50" alt="css">
+            BOOKSHELVE
+           </a>
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+         </div>
+         
+       </nav>-->
+    
+    <header class="header">	    
+        <div class="branding">
+            <div class="container-fluid position-relative py-3">
+                <div class="logo-wrapper">
+	                <div class="site-logo">&nbsp&nbsp<a class="navbar-brand" href="index.html"><img src="{% static 'FindShopLogo.png' %}"  class="css" width="45" height="45" alt="css"><span class="logo-text">&nbsp&nbsp FindShop</span></a>
+	                	<!--<img src="{% static 'FindShopLogo.png' %}"  class="css" width="50" height="50" alt="css">
+            BOOKSHELVE
+           </a>-->
+	                </div>    
+                </div>
+                
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero-section">
+	    <div class="container">
+		    <div class="row">
+			    <div class="col-12 col-md-7 pt-5 mb-5 align-self-center">
+				    <div class="promo pe-md-3 pe-lg-5">
+					    <h1 class="headline mb-3">
+						    Search A Product <br> Find The Shop!
+					    </h1><!--//headline-->
+					    <div class="subheadline mb-4">
+						    A Online website for product searching and reservation. Visit now and start buying right away!
+						    
+					    </div><!--//subheading-->
+					    
+					    <div class="cta-holder row gx-md-3 gy-3 gy-md-0">
+						    <div class="col-12 col-md-auto">
+						        <a class="btn btn-primary w-100" href="login">LOG-IN</a>
+						    </div>
+						    <div class="col-12 col-md-auto">
+						        <a class="btn btn-secondary scrollto w-100" href="register">Register</a>
+						    </div>
+					    </div><!--//cta-holder-->
+					    
+					    <div class="hero-quotes mt-5">
+						    <div id="quotes-carousel" class="quotes-carousel carousel slide carousel-fade mb-5" data-bs-ride="carousel" data-bs-interval="8000">
+								<ol class="carousel-indicators">
+									<li data-bs-target="#quotes-carousel" data-bs-slide-to="0" class="active"></li>
+									<li data-bs-target="#quotes-carousel" data-bs-slide-to="1"></li>
+									<li data-bs-target="#quotes-carousel" data-bs-slide-to="2"></li>
+								</ol>
+							  
+							    <div class="carousel-inner">
+								    <div class="carousel-item active">
+								        <blockquote class="quote p-4 theme-bg-light">
+									        "Gratitude makes sense of our past, brings peace for today, and creates a vision for tomorrow."     
+								        </blockquote><!--//item-->
+
+								        <div class="source row gx-md-3 gy-3 gy-md-0 align-items-center">
+									        <div class="col-12 col-md-auto text-center text-md-start">
+									            <img class="source-profile" src="{% static 'leah.jpg' %}" alt="image" >
+									        </div><!--//col-->
+									        <div class="col source-info text-center text-md-start">
+										        <div class="source-name">Leah Barbaso</div>
+										        <div class="soure-title">Project Mentor</div>
+										    </div><!--//col-->
+								        </div><!--//source-->
+								    </div><!--//carousel-item-->
+								    <div class="carousel-item">
+								        <blockquote class="quote p-4 theme-bg-light">
+									        "Highly recommended, It displays alot of books that i really love. Amazing!"     
+								        </blockquote><!--//item-->
+								        <div class="source row gx-md-3 gy-3 gy-md-0 align-items-center">
+									        <div class="col-12 col-md-auto text-center text-md-start">
+									            <img class="source-profile" src="{% static 'profile-2.png' %}" alt="image" >
+									        </div><!--//col-->
+									        <div class="col source-info text-center text-md-start">
+										        <div class="source-name">Jean Doe</div>
+										        <div class="soure-title">Co-Founder, Startup Week</div>
+										    </div><!--//col-->
+								        </div><!--//source-->
+								    </div><!--//carousel-item-->
+
+								    <div class="carousel-item">
+								        <blockquote class="quote p-4 theme-bg-light">
+											"Highly recommended, It displays alot of books that i really love. Amazing!"      
+								        </blockquote><!--//item-->
+								        <div class="source row gx-md-3 gy-3 gy-md-0 align-items-center">
+									        <div class="col-12 col-md-auto text-center text-md-start">
+									            <img class="source-profile" src="{% static 'profile-3.png' %}" alt="image" >
+									        </div><!--//col-->
+									        <div class="col source-info text-center text-md-start">
+										        <div class="source-name">Andy Doe</div>
+										        <div class="soure-title">Frontend Developer, Company Lorem</div>
+										    </div><!--//col-->
+								        </div><!--//source-->
+								    </div><!--//carousel-item-->
+								</div><!--//carousel-inner-->
+							</div><!--//quotes-carousel-->
+							
+					    </div><!--//hero-quotes-->
+				    </div><!--//promo-->
+			    </div><!--col-->
+
+			    <div class="col-12 col-md-5 mb-5 align-self-center">
+				    <div class="book-cover-holder">
+					    <img class="img-fluid book-cover" src="{% static 'shop2.jpg' %}" alt="book cover" >
+                      
+					    <div class="book-badge d-inline-block shadow">
+						    New<br>Release
+					    </div>
+				    </div><!--//book-cover-holder-->
+				    <!--<div class="text-center"><a class="theme-link scrollto" href="#reviews-section">See all book reviews</a></div>-->
+			    </div><!--col-->
+		    </div><!--//row-->
+	    </div><!--//container-->
+    </section><!--//hero-section-->
+    
+    
+    
+    <section id="reviews-section" class="reviews-section py-5">
+	    <div class="container">
+		    <!--<h2 class="section-heading text-center">About Us</h2>-->
+		    <div class="row align-items-center">
+                  <div class="col">
+                     
+                     {% load static %}
+                      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="{% static 'Find.png' %}"  width="500px" height="350px" alt="About Us">
+                  </div>
+                  <div class="col text-col">
+                     <h1>ABOUT US</h1>
+                     <p>This web application will enable users to seamlessly locate shops and reserve equipment nearby. This team consist of five people that aims to provide a dependable and convenient application that allows customers to find a nearby shop for necessary equipment easily and quickly. </p>
+                     <!--Samantha Juban, Mariah Steiphan Landao, Gracefaith Joy Lapas, Cherry Faith Nacesario, and Ma. Carmel Paragoso.<p>This Website is a partial fulfillment of our Subject Information Management II. This will serve as our final project that would implement the language python that was connected in Django. We the creator of this page will be hoping that you will enjoy the website that we created that was specially made from those book lovers around the Globe.</p>
+                     <p>The persons behind this prodget is greatly pleased to meet you. We are Roberto M. Ladres Jr. and Ma. Carmel G. Paragoso a third year students in BSIT in Cebu Institute of Technology. Were happy that you have visited this website and enjoy your scrolling.</p>-->
+                  </div>
+               </div>
+		    <!--<div class="section-intro text-center single-col-max mx-auto mb-5">See what our buyers are saying. </div>-->
+		    <!-- About us section -->
+		    <!--
+            <section id="about-us">
+               <div class="container">
+               <div class="row align-items-center">
+                  <div class="col">
+                     
+                     {% load static %}
+                      <img src="{% static 'logo.png' %}"  width="550px" height="550px" alt="About Us">
+                  </div>
+                  <div class="col text-col">
+                     <h1>About Us</h1>
+                     <p>This Website is a partial fulfillment of our Subject Information Management II. This will serve as our final project that would implement the language python that was connected in Django. We the creator of this page will be hoping that you will enjoy the website that we created that was specially made from those book lovers around the Globe.</p>
+                     <p>The persons behind this prodget is greatly pleased to meet you. We are Roberto M. Ladres Jr. and Ma. Carmel G. Paragoso a third year students in BSIT in Cebu Institute of Technology. Were happy that you have visited this website and enjoy your scrolling.</p>
+                  </div>
+               </div>
+               </div>
+
+               
+               
+            </section>-->
+            <!-- End About us section -->
+            <br>
+            <center><h3>Meet Team Dosan</h3></center>
+            <br>
+		    <div class="row justify-content-center">
+			    <div class="item col-12 col-lg-4 p-3 mb-4">
+				    <div class="item-inner theme-bg-light rounded p-4">
+					    
+					    <blockquote class="quote">
+							"An Information Technology student from Cebu Institute of Technology-University that seeks to develop applications for an advance society."   
+				        </blockquote><!--//item-->
+				        <div class="source row gx-md-3 gy-3 gy-md-0">
+					        <div class="col-12 col-md-auto text-center text-md-start">
+					            <img class="source-profile" src="{% static 'mine.png' %}" alt="image" >
+					        </div><!--//col-->
+					        <div class="col source-info text-center text-md-start">
+						        <div class="source-name"><strong>Ma. Carmel Paragoso</strong></div>
+						        <div class="soure-title">Team Manager</div>
+						        <div class="soure-title">ma.carmel.paragoso@cit.edu</div>
+						    </div><!--//col-->
+				        </div><!--//source-->
+				        <div class="icon-holder"><i class="fas fa-quote-right"></i></div>
+				    </div><!--//inner-->
+			    </div><!--//item-->
+			    <div class="item col-12 col-lg-4 p-3 mb-4">
+				    <div class="item-inner theme-bg-light rounded p-4">
+					    <blockquote class="quote">
+							"A third-year IT student at CIT-U and a member of Team Dosan, which works to strengthen and boost skills in application development."     
+				        </blockquote><!--//item-->				        
+				        <div class="source row gx-md-3 gy-3 gy-md-0 align-items-center">
+					        <div class="col-12 col-md-auto text-center text-md-start">
+					            <img class="source-profile" src="{% static 'sam.png' %}" alt="image" >
+					        </div><!--//col-->
+					        <div class="col source-info text-center text-md-start">
+						        <div class="source-name"><strong>Samantha Juban</strong></div>
+						        <div class="soure-title">Team Designer</div>
+						        <div class="soure-title">samantha.juban@cit.edu</div>
+						    </div><!--//col-->
+				        </div><!--//source-->
+				        
+				         <div class="icon-holder"><i class="fas fa-quote-right"></i></div>
+				    </div><!--//inner-->
+			    </div><!--//item-->
+			    <div class="item col-12 col-lg-4 p-3 mb-4">
+				    <div class="item-inner theme-bg-light rounded p-4">
+					    <blockquote class="quote">
+							"A third year BSIT student in Cebu Institute of Technology that aims to finish the design of the project in a limited time together with the team."      
+				        </blockquote><!--//item-->
+				        <div class="source row gx-md-3 gy-3 gy-md-0 align-items-center">
+					        <div class="col-12 col-md-auto text-center text-md-start">
+					            <img class="source-profile" src="{% static 'mariah.png' %}" alt="image" >
+					        </div><!--//col-->
+					        <div class="col source-info text-center text-md-start">
+						        <div class="source-name"><strong>Mariah Steiphan Landao</strong></div>
+						        <div class="soure-title">Junior Programmer</div>
+						        <div class="soure-title">mariahsteiphan.landao@cit.edu</div>
+						    </div><!--//col-->
+				        </div><!--//source-->
+				         <div class="icon-holder"><i class="fas fa-quote-right"></i></div>
+				    </div><!--//inner-->
+			    </div><!--//item-->
+			    <div class="item col-12 col-lg-4 p-3 mb-4">
+				    <div class="item-inner theme-bg-light rounded p-4">
+					    <blockquote class="quote">
+							"A third year BSIT student in Cebu Institute of Technology - University that aims to create a functional application together with the team." 
+				        </blockquote><!--//item-->
+				        <div class="source row gx-md-3 gy-3 gy-md-0 align-items-center">
+					        <div class="col-12 col-md-auto text-center text-md-start">
+					            <img class="source-profile" src="{% static 'grace.png' %}" alt="image" >
+					        </div><!--//col-->
+					        <div class="col source-info text-center text-md-start">
+						        <div class="source-name"><strong>Gracefaith Joy Lapas</strong></div>
+						        <div class="soure-title">App Developer</div>
+						        <div class="soure-title">gracefaithjoy.lapas@cit.edu</div>
+						    </div><!--//col-->
+				        </div><!--//source-->
+				        <div class="icon-holder"><i class="fas fa-quote-right"></i></div>
+				    </div><!--//inner-->
+			    </div><!--//item-->
+			    <div class="item col-12 col-lg-4 p-3 mb-4">
+				    <div class="item-inner theme-bg-light rounded p-4">
+					    <blockquote class="quote">
+							"A third year IT student in Cebu Institute of Technology that aims to pass the first semester."<br>
+							<!--Contact Faith @ cherryfaith.necesario@cit.edu--> 
+				        </blockquote><!--//item-->
+				        <div class="source row gx-md-3 gy-3 gy-md-0 align-items-center">
+					        <div class="col-12 col-md-auto text-center text-md-start">
+					            <img class="source-profile" src="{% static 'faith.png' %}" alt="image" >
+					        </div><!--//col-->
+					        <div class="col source-info text-center text-md-start">
+						        <div class="source-name"><strong>Cherry Faith Necesario</strong></div>
+						        <div class="soure-title">Senior Programmer</div>
+						        <div class="soure-title">cherryfaith.necesario@cit.edu</div>
+						    </div><!--//col-->
+				        </div><!--//source-->
+				        <div class="icon-holder"><i class="fas fa-quote-right"></i></div>
+				    </div><!--//inner-->
+			    </div><!--//item-->
+		    </div><!--//row-->
+		    <!-- <div class="text-center">
+		        <a class="btn btn-primary" href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/devbook-free-bootstrap-5-book-ebook-landing-page-template-for-developers/">Get Your Copy Today</a>
+		    </div> -->
+	    </div><!--//container-->
+    </section><!--//reviews-section-->
+    
+    
+
+</body>
+</html> 
+
