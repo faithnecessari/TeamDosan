@@ -23,3 +23,11 @@ class Admin(models.Model):
 
 	def __str__(self):
 		return self.Fname
+	
+#class Reservation(models.Model):
+#	CustomerId = models.CharField(max_length=20)
+#	Quantity = models.IntegerField(max_length=20)
+#	Price = models.IntegerField()
+#	TotalAmount = models.CharField(max_length=50)
+#	PickUpDate = models.TimeField()
+#	PickUpTime = models.DateField()
