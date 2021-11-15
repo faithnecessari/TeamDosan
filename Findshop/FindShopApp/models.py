@@ -31,3 +31,9 @@ class Admin(models.Model):
 #	TotalAmount = models.CharField(max_length=50)
 #	PickUpDate = models.TimeField()
 #	PickUpTime = models.DateField()
+
+#class addProduct(models.Model):
+    #productname = models.CharField(max_length=20)
+    #productprice = models.IntegerField(max_length=20)
+    #productcategory = models.CharField(max_length=20)
+    
