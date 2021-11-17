@@ -29,4 +29,6 @@ urlpatterns = [
     path('login',views.login,name="login"),
     path('login Admin',views.loginAdmin,name="loginAdmin"),
     path('register',views.register,name="register"),
+    path('dashboard',views.dashboardView.as_view(),name="dashboard_view"),
+    path('reservation',views.reservationView.as_view(),name="reservation_view"),
 ]
