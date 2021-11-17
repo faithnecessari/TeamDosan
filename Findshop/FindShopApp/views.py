@@ -286,8 +286,9 @@ class dashboardView(View):
                 id = request.POST.get("id")
                 date = request.POST.get("date")
                 time = request.POST.get("time")
+                product = request.POST.get("product")
                 
-                update = Reservation.objects.filter(id = id).update(date = date, time = time)
+                update = Reservation.objects.filter(id = id).update(date = date, time = time, product = product)
                 print(update)
                 print('profile updated')
                 return redirect('dashboard_view')
@@ -308,12 +309,12 @@ class reservationView(View):
         form = ReservationForm(request.POST)
         
         if form.is_valid():
-            #customerid = request.POST.get("customer.id")
             id = request.POST.get("id")
             date = request.POST.get("date")
             time = request.POST.get("time")
+            product = request.POST.get("product")
 
-            form = Reservation(id = id, date = date, time = time)
+            form = Reservation(id = id, date = date, time = time, product = product)
             form.save()
             
             return redirect('dashboard_view')
