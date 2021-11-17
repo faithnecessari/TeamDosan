@@ -321,3 +321,59 @@ class reservationView(View):
         else:
             print(form.errors)
             return HttpResponse('not valid')
+
+class MyDashboardMainView(View):
+    def get(self, request):
+
+        return render(request,'dashboardmain.html')
+
+class MyProductRegistrationView(View):
+    def get(self, request):
+
+        return render(request,'registration.html') 
+
+    def post(self, request):
+        form = ProductsForm(request.POST)
+
+        if form.is_valid():
+            shopID = request.POST.get("shopID")         
+            productName = request.POST.get("productName")
+            quantity = request.POST.get("quantity")
+            price = request.POST.get("price")
+            
+            form = Products(productName=productName, quantity=quantity, price=price, shopID_id = shopID)
+            form.save()
+
+            return redirect('my_dashboard_main_view')
+        
+        else:
+            print(form.errors)
+        return HttpResponse('not valid')
+
+class MyDashboardView(View):
+    def get(self, request):
+        product = Products.objects.all()
+        shop = Shops.objects.all()
+
+        return render(request,'dashboard.html',{"product" : product, "shop": shop})
+    def post(self, request):
+            if request.method == 'POST':
+                if 'btnUpdate' in request.POST: 
+                    print('update profile button clicked')
+                    pid= request.POST.get("product-id")
+                    productName = request.POST.get("productName")
+                    quantity = request.POST.get("quantity")
+                    price = request.POST.get("price")
+                    shopID= request.POST.get("shopID")
+                    update_product = Products.objects.filter(id = pid).update(productName = productName, quantity = quantity, price = price, shopID_id = shopID)
+                    print(update_product)
+                    print('profile updated')
+                    return redirect('my_dashboard_view')
+                elif 'btnDelete' in request.POST:
+                    print('delete button clicked')
+                    id = request.POST.get("pid")
+                    productdel = Products.objects.filter(id=id).delete()
+                    # pers = Person.objects.filter(id = sid).delete()
+                    print('recorded deleted')
+                    #return HttpResponse ('post')
+            return redirect('my_dashboard_view')
