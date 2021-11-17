@@ -219,15 +219,56 @@ def register(request):
         customer.repassword = repassword
         
         if customer.Password != customer.repassword:
-            messages.info(request,'*Password and Repassword are not the same!*')
+            messages.info(request,'Password and Repassword are not the same!')
             # return redirect("register")
 
         elif customer.CustomerId=="" or customer.Fname=="" or customer.Lname=="" or customer.ContactNum=="" or customer.Street=="" or customer.City_Municipality=="" or customer.Province=="" or customer.Username=="":
-            messages.info(request,'*Some Fields are Empty*')
+            messages.info(request,'Some Fields are Empty')
             # return redirect("register")
 
         else:
             customer.save()
+            messages.info(request, 'Successfully Registered!')
             # return render(request,'login.html')
        
     return render(request,'register.html')
+
+class MyDashboardCustomerView(View):
+    def get(self, request):
+        customers = Customer.objects.all()
+        context = {
+            'customer': customers
+        }
+
+        return render(request,'dashboardCustomer.html',context)
+
+    def post(self, request):
+        
+        if request.method == 'POST':
+            
+            if 'btnUpdate' in request.POST: 
+                print('update profile button clicked')
+                id = request.POST.get("id")
+                Fname = request.POST.get("Fname")
+                Lname = request.POST.get("Lname")
+                ContactNum = request.POST.get("ContactNum")
+                Street = request.POST.get("Street")
+                City_Municipality = request.POST.get("City_Municipality")
+                Province = request.POST.get("Province")
+                
+                update = Customer.objects.filter(id = id).update(id = id, Fname = Fname, Lname = Lname, ContactNum = ContactNum, Street = Street, City_Municipality=City_Municipality,Province=Province)
+                print(update)
+                print('profile updated')
+                messages.info(request,"Successfully Updated!")
+                return redirect('my_dashboard_customer_view')
+            elif 'btnDelete' in request.POST:
+                print('delete button clicked')
+                id = request.POST.get("id")
+                delete = Customer.objects.filter(id=id).delete()
+                # pers = Person.objects.filter(id = sid).delete()
+                print('recorded deleted')
+                messages.info(request,"Successfully Deleted!")
+                
+                #return HttpResponse ('post')
+                return redirect('my_dashboard_customer_view')
+
