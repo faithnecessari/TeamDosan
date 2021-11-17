@@ -40,4 +40,5 @@ class Admin(models.Model):
 class Reservation(models.Model):
     date = models.CharField(max_length=20)
     time = models.CharField(max_length=20)
+    product = models.CharField(max_length=20)
     
