@@ -272,3 +272,51 @@ class MyDashboardCustomerView(View):
                 #return HttpResponse ('post')
                 return redirect('my_dashboard_customer_view')
 
+class dashboardView(View):
+    def get(self, request):
+        reservation = Reservation.objects.all()
+        return render(request, 'dashboard.html',{"reservation" : reservation})
+
+    def post(self, request):
+        
+        if request.method == 'POST':
+            
+            if 'btnUpdate' in request.POST: 
+                print('update profile button clicked')
+                id = request.POST.get("id")
+                date = request.POST.get("date")
+                time = request.POST.get("time")
+                
+                update = Reservation.objects.filter(id = id).update(date = date, time = time)
+                print(update)
+                print('profile updated')
+                return redirect('dashboard_view')
+            elif 'btnDelete' in request.POST:
+                print('delete button clicked')
+                id = request.POST.get("id")
+                delete = Reservation.objects.filter(id=id).delete()
+                # pers = Person.objects.filter(id = sid).delete()
+                print('recorded deleted')
+                #return HttpResponse ('post')
+                return redirect('dashboard_view')
+            
+class reservationView(View):
+    def get(self,request):
+        return render(request,'reservation.html' , {})
+
+    def post(self, request):
+        form = ReservationForm(request.POST)
+        
+        if form.is_valid():
+            #customerid = request.POST.get("customer.id")
+            id = request.POST.get("id")
+            date = request.POST.get("date")
+            time = request.POST.get("time")
+
+            form = Reservation(id = id, date = date, time = time)
+            form.save()
+            
+            return redirect('dashboard_view')
+        else:
+            print(form.errors)
+            return HttpResponse('not valid')
