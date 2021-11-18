@@ -34,4 +34,5 @@ urlpatterns = [
     path('dashboardmain',views.MyDashboardMainView.as_view(),name="my_dashboard_main_view"),
     path('registration',views.MyProductRegistrationView.as_view(),name="my_productregistration_view"),
     path('dashboard',views.MyDashboardView.as_view(),name="my_dashboard_view"),
+    path('dashboardReservation', views.MyDashboardReservationView.as_view(), name="my_dashboard_reservation_view"),
 ]
