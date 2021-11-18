@@ -377,3 +377,21 @@ class MyDashboardView(View):
                     print('recorded deleted')
                     #return HttpResponse ('post')
             return redirect('my_dashboard_view')
+        
+      class MyDashboardReservationView(View):
+    def get(self, request):
+        reservation = Reservation.objects.all()
+
+        return render(request,'dashboardReservation.html',{"reservation" : reservation})
+        
+    def post(self, request):
+        if request.method == 'POST':
+       
+            if 'btnDelete' in request.POST:
+                print('delete button clicked')
+                id = request.POST.get("id")
+                reservedel = Reservation.objects.filter(id=id).delete()
+                # pers = Person.objects.filter(id = sid).delete()
+                print('record deleted')
+                #return HttpResponse ('post')
+                return redirect('my_dashboard_reservation_view')
