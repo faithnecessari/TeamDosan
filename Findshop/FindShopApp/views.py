@@ -271,6 +271,37 @@ class MyDashboardCustomerView(View):
                 
                 #return HttpResponse ('post')
                 return redirect('my_dashboard_customer_view')
+            
+class MyDashboardAdminView(View):
+    def get(self, request):
+        admin = Admin.objects.all()
+        context = {
+            'admins': admin
+        } 
+        return render(request,'dashboardAdmin.html',context)
+
+    def post(self, request):
+        
+        if request.method == 'POST':
+            
+            if 'btnUpdate' in request.POST: 
+                print('update profile button clicked')
+                id = request.POST.get("id")
+                Fname = request.POST.get("Fname")
+                Lname = request.POST.get("Lname")
+                Username = request.POST.get("Username")
+                Password = request.POST.get("Password")
+                
+                update_admin = Admin.objects.filter(id = id).update(Fname = Fname, Lname = Lname, Username = Username, Password = Password)
+                print(update_admin)
+                print('profile updated')
+                return redirect('my_dashboard_admin_view')
+            elif 'btnDelete' in request.POST:
+                print('delete button clicked')
+                id = request.POST.get("id")
+                admindel = Admin.objects.filter(id=id).delete()
+                print('recorded deleted')
+                return redirect('my_dashboard_admin_view')
 
 class dashboardView(View):
     def get(self, request):
