@@ -42,3 +42,9 @@ class Reservation(models.Model):
     time = models.CharField(max_length=20)
     product = models.CharField(max_length=20)
     
+class Reservation(models.Model):
+	Fname = models.CharField(max_length=20)
+	Lname = models.CharField(max_length=20)
+	Product = models.CharField(max_length=20)
+	Date = models.CharField(max_length=20)
+	Time = models.CharField(max_length=20)
