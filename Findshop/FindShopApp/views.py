@@ -303,7 +303,43 @@ class MyDashboardAdminView(View):
                 print('recorded deleted')
                 return redirect('my_dashboard_admin_view')
 
-class dashboardView(View):
+class MyAdminDashboardCustomerView(View):
+    def get(self, request):
+        customers = Customer.objects.all()
+        context = {
+            'customer': customers
+        }
+
+        return render(request,'AdmindashboardCustomer.html',context)
+
+    def post(self, request):
+        
+        if request.method == 'POST':
+            
+            if 'btnUpdate' in request.POST: 
+                print('update profile button clicked')
+                id = request.POST.get("id")
+                Fname = request.POST.get("Fname")
+                Lname = request.POST.get("Lname")
+                ContactNum = request.POST.get("ContactNum")
+                Street = request.POST.get("Street")
+                City_Municipality = request.POST.get("City_Municipality")
+                Province = request.POST.get("Province")
+                
+                update_book = Customer.objects.filter(id = id).update(id = id, Fname = Fname, Lname = Lname, ContactNum = ContactNum, Street = Street, City_Municipality=City_Municipality,Province=Province)
+                print(update_book)
+                print('profile updated')
+                return redirect('my_dashboard_customer_view')
+            elif 'btnDelete' in request.POST:
+                print('delete button clicked')
+                id = request.POST.get("id")
+                bookdel = Customer.objects.filter(id=id).delete()
+                # pers = Person.objects.filter(id = sid).delete()
+                print('recorded deleted')
+                #return HttpResponse ('post')
+                return redirect('my_dashboard_customer_view')
+            
+ class dashboardView(View):
     def get(self, request):
         reservation = Reservation.objects.all()
         return render(request, 'dashboard.html',{"reservation" : reservation})
