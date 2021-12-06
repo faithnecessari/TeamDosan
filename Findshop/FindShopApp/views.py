@@ -426,3 +426,27 @@ class MyDashboardView(View):
                 print('record deleted')
                 #return HttpResponse ('post')
                 return redirect('my_dashboard_reservation_view')
+            
+class productView(View):
+    def get(self, request):
+        return render(request,'product.html' , {})
+     
+class shopView(View):
+    def get(self, request):
+        shop = Shops.objects.all()
+        return render(request,'shop.html' ,{"shops" : shop})
+
+    def post(self, request):
+        
+        if request.method == 'POST':
+                productid = request.POST.get("productID")
+                shopName = request.POST.get("shopname")
+                #street = request.POST.get("street")
+                #cityMunicipality = request.POST.get("citymunicipality")
+                #province = request.POST.get("province")
+                
+                viewShops =  Shops.objects.filter(productID= productid).Select(shopname = shopName)
+                print(viewShops)
+                return redirect('reservation_view')
+           
+            
