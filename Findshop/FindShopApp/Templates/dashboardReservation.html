@@ -141,7 +141,7 @@
                     <li class="nav-item">
                       <a class="nav-link" href="dashboardmain">
                         <span data-feather="file"></span>
-                        OVERVIEW
+                        Dashboard Reports
                       </a>
                     </li>
                      <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -150,19 +150,31 @@
                       <span data-feather="plus-circle"></span>
                     </a>
                   </h6>
-                    <li class="nav-item">
-                      <a class="nav-link" href="dashboard">
-                        <span data-feather="file"></span>
+                  <li class="nav-item">
+                      <a class="nav-link" href="dashboardCustomer">
+                        <span data-feather="users"></span>
                         PRODUCTS
                       </a>
                     </li>
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
+                      <a class="nav-link" href="dashboardCustomer">
+                        <span data-feather="users"></span>
+                        CUSTOMERS
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="dashboardReservation">
+                        <span data-feather="file"></span>
+                         RESERVATIONS
+                      </a>
+                    </li>
+                     <li class="nav-item">
                       <a class="nav-link" href="dashboardSales">
                         <span data-feather="shopping-cart"></span>
-                        SALES
+                        ADMIN
                       </a>
-                    </li> -->
-                    <li class="nav-item">
+                    </li> 
+               <!--     <li class="nav-item">
                       <a class="nav-link" href="dashboardCustomer">
                         <span data-feather="users"></span>
                         CUSTOMERS
@@ -173,14 +185,14 @@
                         <span data-feather="users"></span>
                         CONFIRMED RESERVATION
                       </a>
-                    </li>
+                    </li>-->
 
-                    <li class="nav-item">
+                <!--    <li class="nav-item">
                       <a class="nav-link" href="dashboardAdmin">
                         <span data-feather="users"></span>
                         ADMIN
                       </a>
-                    </li>
+                    </li>-->
                    
                   </ul>
           
@@ -229,7 +241,10 @@
                         <th scope="col" class="text-center">Product</th>
                         <th scope="col" class="text-center">Date</th>
                         <th scope="col" class="text-center">Time</th>
+                        
+                        <th scope="col" class="text-center" >Status</th>
                         <th scope="col" class="text-center" >Action</th>
+
                         
                       </tr>
                     </thead>
@@ -248,6 +263,9 @@
                         <td>{{r.Product}}</td>
                         <td>{{r.Date}}</td>
                         <td>{{r.Time}}</td>
+                        <td>{{r.Status}}</td> 
+                       
+
 
 
                         <td class="text-center">
@@ -258,7 +276,7 @@
 
  -->
                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#newModal-{{r.id}}">
-                            CONFIRM
+                            UPDATE STATUS
                           </button>
                           <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal-{{r.id}}">
                             CANCEL
@@ -310,9 +328,13 @@
                                   </div>
                                   <div class = "col-sm-4">
                                      <label>Time:</label>
-                                    <input type="text" class="form-control" id="Time" placeholder="Time"  name="Time" value ={{r.Time}}>
+                                    <input type="text" class="form-control" id="Time" placeholder="Time"  name="Time" value ={{r.Time}}><br><br>
                                   </div>
-
+                                  
+                                  <label>Status: 
+                                    <input list="Status" name="Status" /></label> <datalist id="Status"> <option value="Pending"> <option value="Confirmed"></datalist>
+                                
+                              
                                 </div>
                                 <br>
                                 
@@ -321,9 +343,16 @@
                             </div>
                           </div>
                         </div>
-                        <div class="modal-footer">  
-                            <button type="submit" id = "btnUpdate" name = "btnUpdate" class="button">YES</button>                                  
-                            <button type="button" class="button btn-danger" data-dismiss="modal">NO</button>                          
+                        <div class="modal-footer"> <!--
+                            <button type="submit" id = "btnUpdate" name = "btnUpdate" class="button">YES</button> <button type="button" class="button btn-danger" data-dismiss="modal">NO</button> -->
+
+
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+                          <!--<button type="submit" id = "btnDelete" name = "btnDelete" class="btn btn-primary">YES</button> -->
+                          <button type="submit" id = "btnUpdate" name = "btnUpdate" class="btn btn-primary">YES</button>
+
+
+
                         </div>
                       </div>
                     </form>
