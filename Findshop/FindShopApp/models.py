@@ -48,3 +48,25 @@ class Reservation(models.Model):
 	Product = models.CharField(max_length=20)
 	Date = models.CharField(max_length=20)
 	Time = models.CharField(max_length=20)
+	
+class Product(models.Model):
+   # productID = models.AutoField(primary_key= True)
+    shopID = models.IntegerField()
+    shopName = models.CharField(max_length=20)
+    productName = models.CharField(max_length=20)
+    quantity = models.IntegerField()
+    price = models.IntegerField()
+    class Meta:
+        db_table="findshopapp_product"
+        
+class Shops(models.Model):
+    #shopID = models.AutoField(primary_key = True)
+    productName = models.CharField(max_length=20)      
+    shopName = models.CharField(max_length=20)
+    street = models.CharField(max_length=20)
+    cityMunicipality = models.CharField(max_length=20)
+    province = models.CharField(max_length=20)
+    contactNumber = models.IntegerField()
+    class Meta:
+        db_table="findshopapp_shops"
+      
