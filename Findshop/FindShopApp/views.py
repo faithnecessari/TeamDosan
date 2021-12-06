@@ -409,7 +409,7 @@ class MyDashboardView(View):
                     #return HttpResponse ('post')
             return redirect('my_dashboard_view')
         
-      class MyDashboardReservationView(View):
+class MyDashboardReservationView(View):
     def get(self, request):
         reservation = Reservation.objects.all()
 
