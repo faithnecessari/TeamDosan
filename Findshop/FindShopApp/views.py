@@ -386,7 +386,7 @@ class MyDashboardView(View):
         product = Products.objects.all()
         shop = Shops.objects.all()
 
-        return render(request,'dashboard.html',{"product" : product, "shop": shop})
+        return render(request,'dashboardProd.html',{"product" : product, "shop": shop})
     def post(self, request):
             if request.method == 'POST':
                 if 'btnUpdate' in request.POST: 
