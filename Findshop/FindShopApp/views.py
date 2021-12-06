@@ -339,7 +339,7 @@ class MyAdminDashboardCustomerView(View):
                 #return HttpResponse ('post')
                 return redirect('my_dashboard_customer_view')
             
- class dashboardView(View):
+class dashboardView(View):
     def get(self, request):
         reservation = Reservation.objects.all()
         return render(request, 'dashboard.html',{"reservation" : reservation})
