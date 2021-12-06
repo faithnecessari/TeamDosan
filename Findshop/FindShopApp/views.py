@@ -337,7 +337,7 @@ class MyAdminDashboardCustomerView(View):
                 # pers = Person.objects.filter(id = sid).delete()
                 print('recorded deleted')
                 #return HttpResponse ('post')
-                return redirect('my_dashboard_customer_view')
+                return redirect('my_admin_dashboard_customer_view')
             
  class dashboardView(View):
     def get(self, request):
