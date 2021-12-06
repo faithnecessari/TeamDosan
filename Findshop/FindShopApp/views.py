@@ -416,16 +416,29 @@ class MyDashboardReservationView(View):
         return render(request,'dashboardReservation.html',{"reservation" : reservation})
         
     def post(self, request):
-        if request.method == 'POST':
-       
-            if 'btnDelete' in request.POST:
-                print('delete button clicked')
-                id = request.POST.get("id")
-                reservedel = Reservation.objects.filter(id=id).delete()
-                # pers = Person.objects.filter(id = sid).delete()
-                print('record deleted')
-                #return HttpResponse ('post')
-                return redirect('my_dashboard_reservation_view')
+            if request.method == 'POST':
+                if 'btnUpdate' in request.POST: 
+                    print('update profile button clicked')
+                    id= request.POST.get("id")
+                    Fname = request.POST.get("Fname")
+                    Lname = request.POST.get("Lname")
+                    Product = request.POST.get("Product")
+                    Date= request.POST.get("Date")
+                    Time= request.POST.get("Time")
+                    Status = request.POST.get("Status")
+                    update_reservation = Reservation.objects.filter(id = id).update(Fname = Fname, Lname = Lname, Product = Product, Date = Date, Time = Time, Status = Status)
+                    print(update_reservation)
+                    print('profile updated')
+                    return redirect('my_dashboard_reservation_view')
+           
+                elif 'btnDelete' in request.POST:
+                    print('delete button clicked')
+                    id = request.POST.get("id")
+                    reservedel = Reservation.objects.filter(id=id).delete()
+                    # pers = Person.objects.filter(id = sid).delete()
+                    print('record deleted')
+                    #return HttpResponse ('post')
+                    return redirect('my_dashboard_reservation_view')
             
 class productView(View):
     def get(self, request):
