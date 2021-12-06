@@ -20,7 +20,6 @@
             integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	
 		
    </head>
 
@@ -69,12 +68,39 @@
 				<br>
 				<br>
 			  </div>
-					 <div class="form-items">
+					<div class="form-items">
 					   
 						<h3>Reservation</h3>
 						<br>
 						<p>Fill in the data below.</p>
-						<br>
+            <br>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Products</a>
+              <div class="dropdown-menu">
+                  <a href="#" class="dropdown-item">T-square</a>
+                  <a href="#" class="dropdown-item">Tracing Paper</a>
+                  <a href="#" class="dropdown-item">Binder</a>
+                  <a href="#"class="dropdown-item">Pentel Pen</a>
+                  <a href="#"class="dropdown-item">Calculator</a>
+              </div>
+              <table id="example" style="width:100%" class="table table-striped table-sm">
+                <thead>
+                 <tr>
+                  <th scope="col"class="text-center">SHOP NAME</th>
+                  <!--<th scope="col" class="text-center">LOCATION</th>-->
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for p in Products %}
+                  <tr>
+                    <td class="text-center">{{p.shopID}}</td>
+                    <!--<td class="text-center">{{s.street}}, {{s.cityMunicipality}}, {{s.province}}</td>-->
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </li>
+						  <br> 
 						   <div class="col-auto">
 							  <input class="form-control" type="text" name="date" placeholder="Reservation Date" required>
 							  <div class="valid-feedback">Date field is valid!</div>
@@ -86,13 +112,6 @@
 							<div class="valid-feedback">Time field is valid!</div>
 							<div class="invalid-feedback">Time field cannot be blank!</div>
 						 </div>
-						 <br>
-						 <div class="col-auto">
-							<input class="form-control" type="text" name="product" placeholder="Reservation product" required>
-							<div class="valid-feedback">Product field is valid!</div>
-							<div class="invalid-feedback">Product field cannot be blank!</div>
-						 </div>
-						 <br>
 						   <br>
 						   <div class="form-check">
 							  <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
@@ -104,9 +123,14 @@
 							<a type = "button" class="btn btn-secondary bg-gradient-secondary" id="id_registration" href="dashboard" >CANCEL</a>
 							<button type="submit" class="btn btn-primary bg-gradient-primary">SAVE</button>
 						  </center>
+              <br>
+            
+            </div>
+          
+      </div>
 		</form>
-
+    
+         {% endblock content %} 
          
-            {% endblock content %} 
    </body>
 </html>
