@@ -1,3 +1,4 @@
+
 {% block headerinclude %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
@@ -57,6 +58,7 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" 
             integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 
+            
             <link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
  
             <script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
@@ -70,21 +72,17 @@
                     $('#example').DataTable();
                 } );
             </script>
-
-            
    </head>
-
- 
 
    <body>
     {% block content %}
-
         <!--navbar-->
         <nav class="navbar navbar-expand-lg fixed-top auto-hiding-navbar">
          <div class="container">
            <a class="navbar-brand" href="#">
-
+            
             {% load static %}
+            
             <img src="{% static 'FindShopLogo.png' %}"  class="css" width="50" height="50" alt="css">
             FINDSHOP
            </a>
@@ -96,7 +94,7 @@
                <li class="nav-item">
                  <a class="nav-link active" aria-current="page" href="index">Home</a>
                </li>
-               
+              
 
              </ul>
             
@@ -179,33 +177,31 @@
           
               <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                 
-                  <div class="btn-toolbar mb-2 mb-md-0">
-                    
-                    
-                  </div>
-                </div>
-          
-          
-                <h2>Customers Informations</h2>
-                <h3></h3>
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     
                   <div class="btn-toolbar mb-2 mb-md-0">
                   
                   </div>
                 </div>
-                
+          
+          
+                <h2>AMINISTRATORS</h2>
                 <div class="table-responsive">
+                  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                    
+                    </div>
+                  </div>
                   <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-                    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" style="color:whitesmoke">CUSTOMER DETAILS</a>
+                    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" style="color:whitesmoke">ADMIN DETAILS</a>
+                   
                     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
                     
                     <div class="navbar-nav">
                       <div class="nav-item text-nowrap">
-                        <a class="nav-link px-3" href="registrationCustomer">ADD CUSTOMER</a>
+                        <a class="nav-link px-3" href="registrationAdmin">ADD ADMIN</a>
                       </div>
                     </div>
                   </header>
@@ -213,36 +209,38 @@
                   <table id="example" style="width:100%" class="table table-striped table-sm">
                     <thead>
                       <tr>
-                        <th scope="col"class="text-center">Customer Id</th>
-                        <th scope="col" class="text-center">Firstname</th>
-                        <th scope="col" class="text-center">Lastname</th>
-                        <th scope="col" class="text-center">Contact No.</th>
-                        <th scope="col" class="text-center">Address</th>
-                        <th scope="col" class="text-center" >Actions</th>
+                        <th scope="col" class="text-center">ADMIN ID</th>
+                        <th scope="col" class="text-center">FIRSTNAME</th>
+                        <th scope="col" class="text-center">LASTNAME</th>
+                        <th scope="col" class="text-center">USERNAME</th>
+                        <th scope="col" class="text-center">PASSWORD</th>
+                        <th scope="col" class="text-center">Action</th>
+                        
                       </tr>
                     </thead>
                     <tbody>
-                      {% for c in customer %}
-                      <tr>
-                        <td class="text-center">{{c.id}}</td>
-                        <td class="text-center">{{c.Fname}}</td>
-                        <td class="text-center">{{c.Lname}}</td>
-                        <td class="text-center">{{c.ContactNum}}</td>
-                        <td class="text-center">{{c.Street}}, {{c.City_Municipality}}, {{c.Province}}</td>
+                      {% for a in admins %}
+                      <tr class="text-center">
+                        <td>{{a.id}}</td>
+                        <td>{{a.Fname}}</td>
+                        <td>{{a.Lname}}</td>
+                        <td>{{a.Username}}</td>
+                        <td>{{a.Password}}</td>
                         <td class="text-center">
-                          <a type="button" class="btn btn-success" href="#" data-toggle="modal" data-target="#newModal-{{c.id}}">VIEW</a>
+                          <a type="button" class="btn btn-success" href="#" data-toggle="modal" data-target="#newModal-{{a.id}}">VIEW</a>
 
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal-{{c.id}}">
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal-{{a.id}}">
                             DELETE
                           </button>
-                        </td>
+                      </td>
+                        
                       </tr>
                       <!-- Modal VIEW-->
-                  <div class="modal fade" id="newModal-{{c.id}}" tabindex="-1" role="dialog" aria-labelledby="newModalLabel" aria-hidden="true">
+                  <div class="modal fade" id="newModal-{{a.id}}" tabindex="-1" role="dialog" aria-labelledby="newModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
                         <div class="modal-header" style="background-color:#683aa4">
-                          <h5 class="modal-title" style="color:white">BOOK DETAILS</h5>
+                          <h5 class="modal-title" style="color:white">ADMIN DETAILS</h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
@@ -250,35 +248,26 @@
                         <form id="updateForm" method="post" >
                         {% csrf_token %}
                         <div class="modal-body">
-                           <input type="text" name="id" value = {{c.id}} hidden> 
+                           <input type="text" name="id" value = {{a.id}} hidden> 
                           <div class="row">
                             <div class="col-12" id="startup-tab-1">
                               <br>
                                 <div class = "row">
-                                  <div class = "col-sm-4">
-                                    <input type="text" class="form-control" id="Fname" placeholder="Fname"  name="Fname" value ={{c.Fname}}>
+                                  <div class = "col-sm-6">
+                                    <input type="text" class="form-control" id="Fname" placeholder="Fname"  name="Fname" value ={{a.Fname}}>
                                   </div>
-                                  <div class = "col-sm-4">
+                                  <div class = "col-sm-6">
                                     
-                                    <input type="text" class="form-control" id="Lname" placeholder="Lname"  name="Lname" value ={{c.Lname}}>
+                                    <input type="text" class="form-control" id="Lname" placeholder="Lname"  name="Lname" value ={{a.Lname}}>
                                   </div>
-
-                                  <div class = "col-sm-4">
-                                    <input type="text" class="form-control" id="ContactNum" placeholder="ContactNum"  name="ContactNum" value ={{c.ContactNum}}>
-                                  </div>
-
                                 </div>
                                 <br>
-                                Address
                                 <div class = "row">
-                                <div class = "col-sm-4">
-                                  <input type="text" class="form-control" id="Street" placeholder="Street"  name="Street" value ={{c.Street}}>
+                                <div class = "col-sm-6">
+                                  <input type="text" class="form-control" id="Username" placeholder="Username"  name="Username" value ={{a.Username}}>
                                 </div>
-                                <div class = "col-sm-4">
-                                  <input type="text" class="form-control" id="City_Municipality" placeholder="City_Municipality"  name="City_Municipality" value ={{c.City_Municipality}}>
-                                </div>
-                                <div class = "col-sm-4">
-                                  <input type="text" class="form-control" id="Province" placeholder="Province"  name="Province" value ={{c.Province}}>
+                                <div class = "col-sm-6">
+                                  <input type="text" class="form-control" id="Password" placeholder="Password"  name="Password" value ={{a.Password}}>
                                 </div>
                               </div>
                              
@@ -296,7 +285,7 @@
                   </div>
 
                   <!-- Modal DELETE-->
-                  <div class="modal fade" id="exampleModal-{{c.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade" id="exampleModal-{{a.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
                         <div class="modal-header" style="background-color:#683aa4">
@@ -308,7 +297,7 @@
                         <form id="deleteForm" method="post" >
                         {% csrf_token %} 
                         <div class="modal-body">                       
-                           <input type="text" name="id" value = {{c.id}} hidden> 
+                           <input type="text" name="id" value = {{a.id}} hidden> 
                           Are you sure you want to delete this record?
                         </div>
                         <div class="modal-footer">
@@ -326,11 +315,9 @@
               </main>
             </div>
           </div>
-          
 
-         {% endblock content %} 
-      
-
-
+         
+      {% endblock content %} 
+  
    </body>
 </html>
