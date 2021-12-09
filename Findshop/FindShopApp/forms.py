@@ -20,3 +20,9 @@ class FeedbackForm(forms.ModelForm):
     class Meta:
             model = Feedback
             fields= "__all__"
+
+class ShopForm(forms.ModelForm):
+
+    class Meta:
+            model = Shops
+            fields= "__all__"
