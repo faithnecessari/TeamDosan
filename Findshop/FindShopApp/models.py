@@ -70,3 +70,12 @@ class Shops(models.Model):
     class Meta:
         db_table="findshopapp_shops"
       
+class Feedback(models.Model):
+	custID = models.ForeignKey(Customer, on_delete = models.CASCADE)
+	shopID = models.ForeignKey(Shops, on_delete = models.CASCADE)
+	email = models.CharField(max_length=50)
+	subject = models.CharField(max_length=500)
+	
+
+	class meta:
+		db_table = 'Feedback'
