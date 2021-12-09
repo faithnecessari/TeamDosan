@@ -489,23 +489,7 @@ class productView(View):
     def get(self, request):
         return render(request,'product.html' , {})
      
-class shopView(View):
-    def get(self, request):
-        shop = Shops.objects.all()
-        return render(request,'dashboardShops.html' ,{"shops" : shop})
 
-    def post(self, request):
-        
-        if request.method == 'POST':
-                #productid = request.POST.get("productID")
-                shopName = request.POST.get("shopname")
-                street = request.POST.get("street")
-                cityMunicipality = request.POST.get("citymunicipality")
-                province = request.POST.get("province")
-                
-                viewShops =  Shops.objects.filter(id= id).Select(shopname = shopName)
-                print(viewShops)
-                return redirect('reservation_view')
 
 class dashboardFeedbackView(View):   
     def get(self, request):
@@ -557,7 +541,7 @@ class MyaddShopView(View):
             print(form.errors)
         return HttpResponse('not valid')   
     
-class MyDashboardShopsView(View):
+class shopView(View):
     def get(self, request):
         shops = Shops.objects.all()
         context = {
@@ -573,20 +557,22 @@ class MyDashboardShopsView(View):
                 print('update profile button clicked')
                 id = request.POST.get("id")
                 shopName = request.POST.get("shopName")
-                productName = request.POST.get("productName")
+                #productName = request.POST.get("productName")
                 street = request.POST.get("street")
                 cityMunicipality = request.POST.get("cityMunicipality")
                 province = request.POST.get("province")
                 contactNumber = request.POST.get("contactNumber")
                 
-                update_shop = Shops.objects.filter(id = id).update(shopName = shopName, productName = productName, street = street, cityMunicipality = cityMunicipality, province = province, contactNumber = contactNumber)
+                update_shop = Shops.objects.filter(id = id).update(shopName = shopName, street = street, cityMunicipality = cityMunicipality, province = province, contactNumber = contactNumber)
                 print(update_shop)
                 print('profile updated')
-                return redirect('my_dashboard_shops_view')
+                return redirect('shop')
             elif 'btnDelete' in request.POST:
-                print('delete button clicked')
-                id = request.POST.get("id")
-                shopdel = Shops.objects.filter(id=id).delete()
-                print('recorded deleted')
-                return redirect('my_dashboard_shops_view')
+                    print('delete button clicked')
+                    id = request.POST.get("id")
+                    shopdel = Shops.objects.filter(id=id).delete()
+                    # pers = Person.objects.filter(id = sid).delete()
+                    print('recorded deleted')
+                    #return HttpResponse ('post')
+        return redirect('shop')
             
