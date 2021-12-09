@@ -529,5 +529,31 @@ class dashboardFeedbackView(View):
                 messages.info(request,"Successfully Deleted!")
                 
                 #return HttpResponse ('post')
-                return redirect('my_dashboard_feedback_view')        
+                return redirect('my_dashboard_feedback_view')     
+
+
+
+class MyaddShopView(View):
+    def get(self, request):
+
+        return render(request,'AddShop.html') 
+
+    def post(self, request):
+        form = ShopForm(request.POST)
+
+        if form.is_valid():
+            shopName = request.POST.get("shopName")         
+            street = request.POST.get("street")
+            cityMunicipality = request.POST.get("cityMunicipality")
+            province = request.POST.get("province")
+            contactNumber = request.POST.get("contactNumber")
+            
+            form = Shops( shopName=shopName, street = street, cityMunicipality =cityMunicipality, province=province,contactNumber = contactNumber)
+            form.save()
+
+            return redirect('login')
+        
+        else:
+            print(form.errors)
+        return HttpResponse('not valid')   
             
