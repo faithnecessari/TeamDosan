@@ -567,12 +567,14 @@ class shopView(View):
                 print(update_shop)
                 print('profile updated')
                 return redirect('shop')
+
             elif 'btnDelete' in request.POST:
-                    print('delete button clicked')
-                    id = request.POST.get("id")
-                    shopdel = Shops.objects.filter(id=id).delete()
-                    # pers = Person.objects.filter(id = sid).delete()
-                    print('recorded deleted')
-                    #return HttpResponse ('post')
-        return redirect('shop')
-            
+                print('delete button clicked')
+                id = request.POST.get("id")
+                shopdel = Shops.objects.filter(id = id).delete()
+                # pers = Person.objects.filter(id = sid).delete()
+                print('recorded deleted')
+                #return HttpResponse ('post')
+                return redirect('shop')
+
+
