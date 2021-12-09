@@ -13,3 +13,10 @@ class AdminForm(forms.ModelForm):
             fields= "__all__"
 
 #hdasdhasdhasd
+
+
+class FeedbackForm(forms.ModelForm):
+
+    class Meta:
+            model = Feedback
+            fields= "__all__"
