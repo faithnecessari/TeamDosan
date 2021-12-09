@@ -508,7 +508,7 @@ class shopView(View):
                 return redirect('reservation_view')
 
 class dashboardFeedbackView(View):   
- def get(self, request):
+    def get(self, request):
         feedback = Feedback.objects.all()
         context = {
             'feedback': feedback
