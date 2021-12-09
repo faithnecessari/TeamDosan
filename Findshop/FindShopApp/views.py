@@ -551,7 +551,7 @@ class MyaddShopView(View):
             form = Shops( shopName=shopName, street = street, cityMunicipality =cityMunicipality, province=province,contactNumber = contactNumber)
             form.save()
 
-            return redirect('login')
+            return redirect('shop')
         
         else:
             print(form.errors)
