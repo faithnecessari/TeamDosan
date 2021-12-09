@@ -99,19 +99,28 @@ def login_page(request):
     return render(request, 'authentication/login.html', context={'form': form})
 
 
-def feedback(request):
-    
-        if request.method=='POST':
-            contact=Contact()
-            name=request.POST.get("name")
-            email=request.POST.get("email")
-            subject=request.POST.get("subject")
-            contact.name=name
-            contact.email=email
-            contact.subject=subject
-            contact.save()
-            return HttpResponse("<h1>Thanks For Contacting Us!</h1>")
-        return render(request,'feedback.html')
+class feedback(View):
+    def get(self, request):
+
+        return render(request,'feedback.html') 
+
+    def post(self, request):
+        form = FeedbackForm(request.POST)
+
+        if form.is_valid():
+            custID = request.POST.get("custID")         
+            email = request.POST.get("email")
+            shopID = request.POST.get("shopID")
+            subject = request.POST.get("subject")
+            
+            form = Feedback( email=email, subject = subject, custID_id =custID, shopID_id=shopID)
+            form.save()
+
+            return redirect('my_index_view_Customer')
+        
+        else:
+            print(form.errors)
+        return HttpResponse('not valid')
 
 
 def login(request):
@@ -419,7 +428,7 @@ class MyProductRegistrationView(View):
 
 class MyDashboardView(View):
     def get(self, request):
-        product = Products.objects.all()
+        product = Product.objects.all()
         shop = Shops.objects.all()
 
         return render(request,'dashboardProd.html',{"product" : product, "shop": shop})
