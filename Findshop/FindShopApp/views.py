@@ -506,5 +506,28 @@ class shopView(View):
                 viewShops =  Shops.objects.filter(productID= productid).Select(shopname = shopName)
                 print(viewShops)
                 return redirect('reservation_view')
-           
+
+class dashboardFeedbackView(View):   
+ def get(self, request):
+        feedback = Feedback.objects.all()
+        context = {
+            'feedback': feedback
+        }
+
+        return render(request,'dashboardFeedback.html',context)
+
+    def post(self, request):
+        
+        if request.method == 'POST':
+            
+            if 'btnDelete' in request.POST:
+                print('delete button clicked')
+                id = request.POST.get("id")
+                delete = Feedback.objects.filter(id=id).delete()
+                # pers = Person.objects.filter(id = sid).delete()
+                print('recorded deleted')
+                messages.info(request,"Successfully Deleted!")
+                
+                #return HttpResponse ('post')
+                return redirect('my_dashboard_feedback_view')        
             
