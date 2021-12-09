@@ -497,13 +497,13 @@ class shopView(View):
     def post(self, request):
         
         if request.method == 'POST':
-                productid = request.POST.get("productID")
+                #productid = request.POST.get("productID")
                 shopName = request.POST.get("shopname")
-                #street = request.POST.get("street")
-                #cityMunicipality = request.POST.get("citymunicipality")
-                #province = request.POST.get("province")
+                street = request.POST.get("street")
+                cityMunicipality = request.POST.get("citymunicipality")
+                province = request.POST.get("province")
                 
-                viewShops =  Shops.objects.filter(productID= productid).Select(shopname = shopName)
+                viewShops =  Shops.objects.filter(id= id).Select(shopname = shopName)
                 print(viewShops)
                 return redirect('reservation_view')
 
