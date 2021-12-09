@@ -193,7 +193,7 @@
                     </div>
                   </div>
                   <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-                    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" style="color:whitesmoke">ADMIN DETAILS</a>
+                    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" style="color:whitesmoke">SHOP DETAILS</a>
                    
                     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
@@ -211,7 +211,6 @@
                       <tr>
                         <th scope="col" class="text-center">SHOP ID</th>
                         <th scope="col" class="text-center">SHOPNAME</th>
-                        <th scope="col" class="text-center">PRODUCT</th>
                         <th scope="col" class="text-center">LOCATION</th>
                         <th scope="col" class="text-center">CONTACT NUMBER</th>
                         <th scope="col" class="text-center">Action</th>
@@ -223,7 +222,6 @@
                       <tr class="text-center">
                         <td>{{s.id}}</td>
                         <td>{{s.shopName}}</td>
-                        <td>{{s.productName}}</td>
                         <td>{{s.street}}, {{s.cityMunicipality}}, {{s.province}}</td>
                         <td>{{s.contactNumber}}</td>
                         <td class="text-center">
@@ -254,15 +252,13 @@
                               <br>
                                 <div class = "row">
                                   <div class = "col-sm-6">
+                                    
                                     <input type="text" class="form-control" id="shopName" placeholder="Shop Name"  name="shopName" value ={{s.shopName}}>
                                   </div>
-                                  <div class = "col-sm-6">
-                                    
-                                    <input type="text" class="form-control" id="productName" placeholder="Product Name"  name="productName" value ={{s.productName}}>
-                                  </div>
-                                </div>
+                                
                                 <br>
                                 <!--<div class = "row">-->
+                                  <label for="subject" class="form-label">Location</label>
                                 <div class = "col-sm-6">
                                   <input type="text" class="form-control" id="street" placeholder="Street"  name="street" value ={{s.street}}>
                                 </div>
