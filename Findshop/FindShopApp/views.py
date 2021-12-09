@@ -492,7 +492,7 @@ class productView(View):
 class shopView(View):
     def get(self, request):
         shop = Shops.objects.all()
-        return render(request,'shop.html' ,{"shops" : shop})
+        return render(request,'dashboardShops.html' ,{"shops" : shop})
 
     def post(self, request):
         
