@@ -556,4 +556,37 @@ class MyaddShopView(View):
         else:
             print(form.errors)
         return HttpResponse('not valid')   
+    
+class MyDashboardShopsView(View):
+    def get(self, request):
+        shops = Shops.objects.all()
+        context = {
+            'shops': shops
+        } 
+        return render(request,'dashboardShops.html',context)
+
+    def post(self, request):
+        
+        if request.method == 'POST':
+            
+            if 'btnUpdate' in request.POST: 
+                print('update profile button clicked')
+                id = request.POST.get("id")
+                shopName = request.POST.get("shopName")
+                productName = request.POST.get("productName")
+                street = request.POST.get("street")
+                cityMunicipality = request.POST.get("cityMunicipality")
+                province = request.POST.get("province")
+                contactNumber = request.POST.get("contactNumber")
+                
+                update_shop = Shops.objects.filter(id = id).update(shopName = shopName, productName = productName, street = street, cityMunicipality = cityMunicipality, province = province, contactNumber = contactNumber)
+                print(update_shop)
+                print('profile updated')
+                return redirect('my_dashboard_shops_view')
+            elif 'btnDelete' in request.POST:
+                print('delete button clicked')
+                id = request.POST.get("id")
+                shopdel = Shops.objects.filter(id=id).delete()
+                print('recorded deleted')
+                return redirect('my_dashboard_shops_view')
             
