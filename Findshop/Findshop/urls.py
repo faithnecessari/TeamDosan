@@ -40,4 +40,5 @@ urlpatterns = [
     path('dashboardCustomer',views.MyDashboardCustomerView.as_view(),name="my_dashboard_customer_view"),
     path('product',views.productView.as_view(),name="product"),
     path('shop',views.shopView.as_view(),name="shop"),
+    path('dashboardFeedback',views.dashboardFeedbackView.as_view(),name="my_dashboard_feedback_view"),
 ]
