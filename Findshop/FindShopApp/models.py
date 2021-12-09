@@ -61,7 +61,7 @@ class Product(models.Model):
         
 class Shops(models.Model):
     #shopID = models.AutoField(primary_key = True)
-    productName = models.CharField(max_length=20)      
+    #productName = models.CharField(max_length=20)      
     shopName = models.CharField(max_length=20)
     street = models.CharField(max_length=20)
     cityMunicipality = models.CharField(max_length=20)
