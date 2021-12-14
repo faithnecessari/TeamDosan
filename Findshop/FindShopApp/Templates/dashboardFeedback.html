@@ -1,5 +1,4 @@
-
-{% block headerinclude %}
++{% block headerinclude %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
 <link rel = "stylesheet" href = "https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
@@ -131,7 +130,7 @@
                     
                     
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                      <h1 class="h2">Dashboard</h1>
+                      <!--<h1 class="h2">Dashboard</h1>-->
                       <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
                         </div>
@@ -230,7 +229,7 @@
                   {% csrf_token %}
                   
                   <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-                    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" style="color:whitesmoke">CUSTOMERS FEEDBACK</a>
+                    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" style="color:whitesmoke">CUSTOMER FEEDBACKS</a>
                     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
@@ -262,7 +261,7 @@
                         <td>{{r.Category}}</td>
                         <td>{{r.Price}}</td> -->
  
-                        <td>{{f.custID}}</td>
+                        <td>{{f.custID_id}}</td>
                         <td>{{f.email}}</td>
                         <td>{{f.shopID_id}}</td>
                         <td>{{f.subject}}</td>
@@ -313,4 +312,4 @@
 
 
    </body>
-</html>
+   </html>
