@@ -513,7 +513,7 @@ class dashboardFeedbackView(View):
                 messages.info(request,"Successfully Deleted!")
                 
                 #return HttpResponse ('post')
-                return redirect('my_dashboard_feedback_view')     
+                return redirect('my_dashboard_feedback_view')      
 
 
 
