@@ -37,10 +37,11 @@ class Admin(models.Model):
     #productprice = models.IntegerField(max_length=20)
     #productcategory = models.CharField(max_length=20)
     
-class Reservation(models.Model):
-    date = models.CharField(max_length=20)
-    time = models.CharField(max_length=20)
-    product = models.CharField(max_length=20)
+#class Reservation(models.Model):
+ 
+ #   date = models.CharField(max_length=20)
+  #  time = models.CharField(max_length=20)
+   # product = models.CharField(max_length=20)
     
 class Reservation(models.Model):
 	Fname = models.CharField(max_length=20)
